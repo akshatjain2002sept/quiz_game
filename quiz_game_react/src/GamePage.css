@@ -1,0 +1,33 @@
+body {
+  background-color: rgb(235, 232, 232);
+}
+.question {
+  height: 100px;
+  width: 70%;
+  background-color: rgb(8, 216, 216);
+}
+.answers {
+  height: 50px;
+  width: 70px;
+  background-color: rgb(203, 221, 223);
+}
+.answer1 {
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+.answer2 {
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+.answer3 {
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+.answer4 {
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
