@@ -1,12 +1,15 @@
 import React, { Component } from "react";
+import Answers from "./Answers";
 
-export default class Questions extends Component {
+class Questions extends Component {
   constructor(props) {
     super(props);
     this.state = {
       questionEasyList: [],
       questionMediumList: [],
       questionHardList: [],
+      number: 0,
+      level: undefined,
     };
   }
 
@@ -31,14 +34,12 @@ export default class Questions extends Component {
   }
 
   questionUsefulInfo(question, correct_answer, answer2, answer3, answer4) {
-    console.log("eneters questionUsefulInfo");
-    var answer = new Array(question, correct_answer, answer2, answer3, answer4);
+    var answer = [question, correct_answer, answer2, answer3, answer4];
     return answer;
   }
 
   answer() {
-    console.log("enters answer");
-    const questionInfo = this.state.questionEasyList.map((question) =>
+    var questionInfo = this.state.questionEasyList.map((question) =>
       this.questionUsefulInfo(
         question.question,
         question.correct_answer,
@@ -47,14 +48,58 @@ export default class Questions extends Component {
         question.incorrect_answers[2]
       )
     );
-    console.log("QuestionInfo:", questionInfo);
     return questionInfo;
   }
 
+  findQuestion(questionList) {
+    return questionList[this.state.number];
+  }
+
+  findAnswers(question) {
+    return question[0];
+  }
+
+  QuestionDisplay(questionList) {
+    var question = this.findQuestion(questionList);
+    var answer1 = question;
+    if (!question) {
+      return <span>Loading...</span>;
+    }
+    var actualQuestion = question[0];
+
+    var answer1 = (
+      <Answers letter="A" text={question[1]} correct="true"></Answers>
+    );
+    var answer2 = (
+      <Answers letter="B" text={question[2]} correct="false"></Answers>
+    );
+    var answer3 = (
+      <Answers letter="C" text={question[3]} correct="false"></Answers>
+    );
+    var answer4 = (
+      <Answers letter="D" text={question[4]} correct="false"></Answers>
+    );
+
+    return (
+      <div className="Game">
+        <div className="question">
+          Question {this.state.number}: {actualQuestion}{" "}
+        </div>
+
+        <div className="answers">
+          <div className="answer1">{answer1}</div>
+          <div className="answer2">{answer2}</div>
+          <div className="answer3">{answer3}</div>
+          <div className="answer4">{answer4}</div>
+        </div>
+      </div>
+    );
+  }
+
   render() {
-    var end = this.answer();
-    console.log("enters render");
-    // return [this.state.questionEasyList];
-    return <div>{end}</div>;
+    var questionList = this.answer();
+    return this.QuestionDisplay(questionList);
   }
 }
+
+export default Questions;
