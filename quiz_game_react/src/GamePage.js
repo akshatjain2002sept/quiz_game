@@ -27,7 +27,7 @@ function Options() {
   return (
     <div>
       <div className="selection">
-        <h1> Please select the difficult you want</h1>
+        <h1> Please select the difficulty you want</h1>
       </div>
       <div className="level_buttons">
         <nav>

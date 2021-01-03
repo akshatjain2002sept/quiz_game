@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Answers from "./Answers";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 
 class Questions extends Component {
   constructor(props) {
@@ -86,14 +88,52 @@ class Questions extends Component {
           Question {this.state.number}: {actualQuestion}{" "}
         </div>
 
+      <div>
+        <Router>
+          <Switch>
+            <Route path="/gamepage/gameOver" exact component={this.gameOver()} />
+            <Route path="/gamepage/correct" exact component={this.correct()} />
+            <Route path="/gamepage/easy" exact>
+            </Route>
+          </Switch>
+        </Router>
         <div className="answers">
-          <div className="answer1">{answer1}</div>
-          <div className="answer2">{answer2}</div>
-          <div className="answer3">{answer3}</div>
-          <div className="answer4">{answer4}</div>
+          <nav>
+            <Link to="/gamepage/correct">
+              <div className="answer1">{answer1}</div>
+            </Link>
+          </nav>
+          <nav>
+            <Link to="/gamepage/gameOver">
+              <div className="answer2">{answer2}</div>
+            </Link>
+          </nav>
+          <nav>
+            <Link to="/gamepage/gameOver">
+              <div className="answer3">{answer3}</div>
+            </Link>
+          </nav>
+          <nav>
+            <Link to="/gamepage/gameOver">
+              <div className="answer4">{answer4}</div>
+            </Link>
+          </nav>
         </div>
       </div>
+      </div>
     );
+  }
+
+  correct() {
+    <div>
+      <h1>Correct!</h1>
+    </div>
+  }
+
+  gameOver() {
+    <div className="gameover">
+        <h1>gameover</h1>
+    </div>
   }
 
   render() {
