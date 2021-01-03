@@ -2,46 +2,57 @@ body {
   background-color: rgb(235, 232, 232);
 }
 .question {
+  position: relative;
+  top: 10px;
+  left: 50px;
   height: 100px;
-  width: 70%;
+  width: 90%;
   background-color: rgb(8, 216, 216);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vw;
 }
-/* .answers {
-  height: 50px;
-  width: 70px;
-  background-color: rgb(203, 221, 223);
-} */
-.answer1 button {
+.answers {
   position: relative;
   top: 20px;
+}
+.answer1 button {
+  position: absolute;
+  top: 20px;
   left: 50px;
-  height: 50px;
-  width: 70px;
+  height: 250px;
+  width: 350px;
   background-color: rgb(203, 221, 223);
+  border-radius: 12px;
 }
 .answer2 button {
-  position: relative;
+  position: absolute;
   top: 20px;
-  left: 50px;
-  height: 50px;
-  width: 70px;
+  left: 440px;
+  height: 250px;
+  width: 350px;
   background-color: rgb(203, 221, 223);
+  border-radius: 12px;
 }
 .answer3 button {
-  position: relative;
-  top: 20px;
+  position: absolute;
+  top: 310px;
   left: 50px;
-  height: 50px;
-  width: 70px;
+  height: 250px;
+  width: 350px;
   background-color: rgb(203, 221, 223);
+  border-radius: 12px;
 }
 .answer4 button {
-  position: relative;
-  top: 20px;
-  left: 50px;
-  height: 50px;
-  width: 70px;
+  position: absolute;
+  top: 310px;
+  left: 440px;
+  height: 250px;
+  width: 350px;
   background-color: rgb(203, 221, 223);
+  border-radius: 12px;
 }
 
 .gameover {
