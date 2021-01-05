@@ -91,14 +91,13 @@ class Questions extends Component {
           <Switch>
             <Route path="/gamepage/gameOver" exact component={this.gameOver()} />
             <Route path="/gamepage/correct" exact component={this.correct()} />
-            <Route path="/coolButton" exact component={coolButton}/>
             <Route path="/gamepage/easy" exact>
               <div className="question">
                 Question {this.state.number}: {actualQuestion}{" "}
               </div>
               <div className="answers">
                 <nav>
-                  <Link to="/coolButton">
+                  <Link to="/gamepage/correct">
                     <div className="answer1">{answer1}</div>
                   </Link>
                 </nav>
@@ -117,7 +116,6 @@ class Questions extends Component {
                     <div className="answer4">{answer4}</div>
                   </Link>
                 </nav>
-                <button type="button" className="specButton">cool button</button>
               </div>
             </Route>
           </Switch>
