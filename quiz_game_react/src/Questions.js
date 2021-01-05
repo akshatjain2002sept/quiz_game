@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Answers from "./Answers";
-import "./coolButton";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import coolButton from "./coolButton";
+import { renderToString } from 'react-dom/server';
 
 
 class Questions extends Component {
@@ -89,7 +88,7 @@ class Questions extends Component {
       <div>
         <Router>
           <Switch>
-            <Route path="/gamepage/gameOver" exact component={this.gameOver()} />
+            <Route path="/gamepage/gameOver" exact render={() => <h1>Game Over</h1>} />
             <Route path="/gamepage/correct" exact component={this.correct()} />
             <Route path="/gamepage/easy" exact>
               <div className="question">
@@ -113,7 +112,7 @@ class Questions extends Component {
                 </nav>
                 <nav>
                   <Link to="/gamepage/gameOver">
-                    <div className="answer4">{answer4}</div>
+                    <div className="answer4"><Fragment>{answer4}</Fragment></div>
                   </Link>
                 </nav>
               </div>
