@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Answers from "./Answers";
+import Home from "./App";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { renderToString } from 'react-dom/server';
 
@@ -88,8 +89,24 @@ class Questions extends Component {
       <div>
         <Router>
           <Switch>
-            <Route path="/gamepage/gameOver" exact render={() => <h1>Game Over</h1>} />
-            <Route path="/gamepage/correct" exact component={this.correct()} />
+            <Route path="/gamepage/gameOver" exact render={() => (
+                                                                  <div className="overPage">
+                                                                    <div className="gameover">Game Over</div>
+                                                                    <div className="numAnswered">You answered {this.state.number}/15 questions correctly</div>
+                                                                    <nav><Link to="">
+                                                                      <button type="button" className="homeButton">Return to Home</button>
+                                                                    </Link></nav>
+                                                                  </div>
+                                                                  )} />
+            <Route path="/gamepage/correct" exact render={() => (
+                                                                <div className="correctPage">
+                                                                  <div className="correctMessage">Correct!</div>
+                                                                  <nav><Link to=""> <button type="button" className="homeButton">Return to Home</button>
+                                                                  </Link></nav>
+                                                                  <nav><Link to="/gamepage/easy"> <button type="button" className="nextQ">Next Question</button>
+                                                                  </Link></nav>
+                                                                </div>
+                                                                )} />
             <Route path="/gamepage/easy" exact>
               <div className="question">
                 Question {this.state.number}: {actualQuestion}{" "}
@@ -117,11 +134,16 @@ class Questions extends Component {
                 </nav>
               </div>
             </Route>
+            <Route path="" exact component={Home} />
           </Switch>
         </Router>
       </div>
       </div>
     );
+  }
+
+  refreshPage(){ 
+    window.location.href=""; 
   }
 
   correct() {

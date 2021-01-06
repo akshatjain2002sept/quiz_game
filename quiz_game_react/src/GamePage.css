@@ -62,9 +62,6 @@ body {
   z-index: 1;
   font-size: 2vw;
 }
-.gameover {
-  background-color: black;
-}
 .answer1 button:after {
   content: "";
   position: absolute;
@@ -180,4 +177,55 @@ body {
 }
 .answer4 button:hover:before {
   width: 100%;
+}
+.overPage {
+  text-align: center;
+  position: relative;
+}
+.gameover {
+  position: relative;
+  top: 1vw;
+  font-size: 5vw;
+  font-weight: 600;
+}
+.numAnswered {
+  position: relative;
+  top: 2vw;
+  font-size: 2vw;
+}
+.homeButton {
+  position: relative;
+  border-radius: 50px;
+  top: 3.5vw;
+  height: 4vw;
+  width: 8vw;
+  font-size: 1vw;
+  background-color: rgb(96, 230, 245);
+}
+.homeButton:hover {
+  background-color: rgb(20, 91, 99);
+  color: white;
+}
+.correctPage {
+  text-align: center;
+  position: relative;
+}
+.correctMessage {
+  position: relative;
+  top: 1vw;
+  font-size: 5vw;
+  font-weight: 600;
+}
+.nextQ {
+  position: relative;
+  border-radius: 50px;
+  top: 3.5vw;
+  height: 4.5vw;
+  width: 8vw;
+  font-size: 1vw;
+  background-color: rgb(106, 199, 69);
+}
+.nextQ:hover {
+  background-color: rgb(20, 78, 20);
+  color: white;
 }
