@@ -32,17 +32,17 @@ function Options() {
       <div className="level_buttons">
         <nav>
           <Link to="/gamepage/easy">
-            <button type="button">Easy</button>
+            <button type="button" className='easyButton'>Easy</button>
           </Link>
         </nav>
         <nav>
           <Link to="/gamepage/medium">
-            <button type="button">Medium</button>
+            <button type="button" className='mediumButton'>Medium</button>
           </Link>
         </nav>
         <nav>
           <Link to="/gamepage/hard">
-            <button type="button">Hard</button>
+            <button type="button" className='hardButton'>Hard</button>
           </Link>
         </nav>
       </div>

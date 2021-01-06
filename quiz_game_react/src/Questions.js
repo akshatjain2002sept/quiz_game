@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Answers from "./Answers";
 import Home from "./App";
+import Correct from "./CorrectAnswer";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { renderToString } from 'react-dom/server';
 
@@ -103,10 +104,10 @@ class Questions extends Component {
                                                                   <div className="correctMessage">Correct!</div>
                                                                   <nav><Link to=""> <button type="button" className="homeButton">Return to Home</button>
                                                                   </Link></nav>
-                                                                  <nav><Link to="/gamepage/easy"> <button type="button" className="nextQ">Next Question</button>
+                                                                  <nav><Link to="/gamepage/easy/next"> <button type="button" className="nextQ">Next Question</button>
                                                                   </Link></nav>
                                                                 </div>
-                                                                )} />
+                                                                )}/>
             <Route path="/gamepage/easy" exact>
               <div className="question">
                 Question {this.state.number}: {actualQuestion}{" "}
@@ -134,6 +135,7 @@ class Questions extends Component {
                 </nav>
               </div>
             </Route>
+            <Route path="/gamepage/easy/next" exact component={Correct} />
             <Route path="" exact component={Home} />
           </Switch>
         </Router>

@@ -1,6 +1,58 @@
 body {
   background-color: rgb(235, 232, 232);
 }
+/*******************GamePage (Level Buttons CSS)**************************/
+
+.selection {
+  font-size: 25px;
+  text-align: center;
+}
+.level_buttons {
+  position: relative;
+  text-align: center;
+}
+.easyButton {
+  position: relative;
+  border-radius: 50px;
+  top: 15px;
+  height: 90px;
+  width: 175px;
+  font-size: 30px;
+  background-color: rgb(96, 230, 245);
+}
+.easyButton:hover {
+  background-color: rgb(20, 91, 99);
+  color: white;
+}
+.mediumButton {
+  position: relative;
+  border-radius: 50px;
+  top: 30px;
+  height: 90px;
+  width: 175px;
+  font-size: 30px;
+  background-color: rgb(96, 230, 245);
+}
+.mediumButton:hover {
+  background-color: rgb(20, 91, 99);
+  color: white;
+}
+.hardButton {
+  position: relative;
+  border-radius: 50px;
+  top: 45px;
+  height: 90px;
+  width: 175px;
+  font-size: 30px;
+  background-color: rgb(96, 230, 245);
+}
+.hardButton:hover {
+  background-color: rgb(20, 91, 99);
+  color: white;
+}
+
+/*******************Questions (Actual game page)**************************/
+
 .question {
   position: relative;
   top: 0.5vw;
@@ -178,6 +230,9 @@ body {
 .answer4 button:hover:before {
   width: 100%;
 }
+
+/*******************GameOver Page**************************/
+
 .overPage {
   text-align: center;
   position: relative;
@@ -206,6 +261,9 @@ body {
   background-color: rgb(20, 91, 99);
   color: white;
 }
+
+/*******************Correct Page**************************/
+
 .correctPage {
   text-align: center;
   position: relative;
