@@ -76,7 +76,13 @@ function StartButton() {
     <div className="startButton">
       <nav>
         <Link to="/gamepage">
-          <button type="button">Start</button>
+            <button class="btn">
+            <svg width="300px" height="100px" viewBox="0 0 300 100" class="border">
+            <polyline points="299,1 299,99 1,99 1,1 299,1" class="bg-line" />
+            <polyline points="299,1 299,99 1,99 1,1 299,1" class="hl-line" />
+            </svg>
+            START
+            </button>
         </Link>
       </nav>
     </div>

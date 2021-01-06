@@ -8,14 +8,14 @@
   color: white;
 }
 
-.startButton button {
+/* .startButton button {
   position: relative;
   left: 36.5%;
   top: 50px;
   padding: 40px 10%;
   font-size: 40px;
   border-radius: 12px;
-  background-color: #7fffd4;
+  background-color: rgb(96, 230, 245);
   border-color: white;
 }
 
@@ -24,7 +24,7 @@
   left: 34.5%;
   top: 44px;
   border-color: black;
-}
+} */
 
 .rulesHeader {
   padding-top: 70px;
@@ -63,5 +63,40 @@
 /* Control the right side */
 .right {
   right: 0;
-  background-color: white;
+  background-color: rgb(235, 232, 232);
+}
+
+/***********Cool Start Button*************/
+.btn {
+  position: relative;
+  left: 37.5%;
+  top: 50px;
+  font-size: 50px;
+  width: 300px;
+  height: 100px;
+  cursor: pointer;
+  background: rgb(96, 230, 245);
+  border: 1px solid #91c9ff;
+  outline: none;
+  transition: 1s ease-in-out;
+}
+
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: black;
+  stroke-dasharray: 150 800;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+
+.btn:hover {
+  transition: 1s ease-in-out;
+  background: #3efd6e;
+}
+
+.btn:hover svg {
+  stroke-dashoffset: -800;
 }
