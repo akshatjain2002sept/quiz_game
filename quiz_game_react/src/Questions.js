@@ -13,7 +13,7 @@ class Questions extends Component {
       questionEasyList: [],
       questionMediumList: [],
       questionHardList: [],
-      number: 0,
+      number: 1,
       level: undefined,
     };
   }
@@ -73,7 +73,7 @@ class Questions extends Component {
     var actualQuestion = question[0];
 
     var answer1 = (
-      <Answers letter="A" text={question[1]} correct="true"></Answers>
+      <Answers letter="A" text={question[1]} correct_answer="true" clicked ="false"></Answers>
     );
     var answer2 = (
       <Answers letter="B" text={question[2]} correct="false"></Answers>
@@ -90,24 +90,6 @@ class Questions extends Component {
       <div>
         <Router>
           <Switch>
-            <Route path="/gamepage/gameOver" exact render={() => (
-                                                                  <div className="overPage">
-                                                                    <div className="gameover">Game Over</div>
-                                                                    <div className="numAnswered">You answered {this.state.number}/15 questions correctly</div>
-                                                                    <nav><Link to="">
-                                                                      <button type="button" className="homeButton">Return to Home</button>
-                                                                    </Link></nav>
-                                                                  </div>
-                                                                  )} />
-            <Route path="/gamepage/correct" exact render={() => (
-                                                                <div className="correctPage">
-                                                                  <div className="correctMessage">Correct!</div>
-                                                                  <nav><Link to=""> <button type="button" className="homeButton">Return to Home</button>
-                                                                  </Link></nav>
-                                                                  <nav><Link to="/gamepage/easy/next"> <button type="button" className="nextQ">Next Question</button>
-                                                                  </Link></nav>
-                                                                </div>
-                                                                )}/>
             <Route path="/gamepage/easy" exact>
               <div className="question">
                 Question {this.state.number}: {actualQuestion}{" "}
@@ -135,29 +117,52 @@ class Questions extends Component {
                 </nav>
               </div>
             </Route>
-            <Route path="/gamepage/easy/next" exact component={Correct} />
+            <Route path="/gamepage/gameOver" exact>
+              {this.gameOver()}
+            </Route>
+            <Route path="/gamepage/correct" exact>
+              {this.correct(answer1)}
+            </Route>
+            <Route path="/gamepage/easy/next" exact>
+              <h1>idk what to do</h1>  
+            </Route>
             <Route path="" exact component={Home} />
           </Switch>
         </Router>
       </div>
       </div>
-    );
+    ); 
   }
 
-  refreshPage(){ 
+  gameDisplay(){ 
     window.location.href=""; 
   }
 
-  correct() {
-    <div>
-      <h1>Correct!</h1>
-    </div>
+  correct(answer1) {
+    if (answer1.clicked == false) {
+      return;
+    }
+    return (
+      <div className="correctPage">
+        <div className="correctMessage">Correct!</div>
+        <nav><Link to=""> <button type="button" className="homeButton">Return to Home</button>
+        </Link></nav>
+        <nav><Link to="/gamepage/easy/next"> <button type="button" className="nextQ">Next Question</button>
+        </Link></nav>
+      </div>
+      );
   }
 
   gameOver() {
-    <div className="gameover">
-        <h1>gameover</h1>
-    </div>
+    return (
+      <div className="overPage">
+        <div className="gameover">Game Over</div>
+        <div className="numAnswered">You answered {this.state.number - 1}/15 questions correctly</div>
+        <nav><Link to="">
+          <button type="button" className="homeButton">Return to Home</button>
+        </Link></nav>
+      </div>
+      );
   }
 
   render() {
